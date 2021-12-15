@@ -1,0 +1,6 @@
+name: conor-test
+recipe: pantheon
+config:
+  framework: wordpress
+  site: conor-test
+  id: 0b083fba-10ae-42d7-aff4-77835af77554
