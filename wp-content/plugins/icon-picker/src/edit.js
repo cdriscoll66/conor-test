@@ -47,6 +47,10 @@ export default function Edit({ attributes, setAttributes, className }) {
 		setAttributes({ size: newContent });
 	};
 
+	const onChangeStyle = (newContent) => {
+		setAttributes({ style: newContent });
+	};
+
 	// let classes = classnames({
 	// 	fal: true,
 	// });
@@ -59,11 +63,12 @@ export default function Edit({ attributes, setAttributes, className }) {
 						<SelectControl
 							label="Icon"
 							options={[
-								{
-									label: "<i class='fal-alt fa-head-side-brain'></i>",
-									value: "fa-head-side-brain",
-								},
-								{ label: "icon2", value: "fa-heart-circle" },
+								{ label: "fa-head-side-brain", value: "fa-head-side-brain"},
+								{ label: "fa-heart-circle", value: "fa-heart-circle" },
+								{ label: "fa-drafting-compass", value: "fa-drafting-compass"},
+								{ label: "fa-code", value: "fa-code" },
+								{ label: "fa-clipboard-list-check", value: "fa-clipboard-list-check"},
+								{ label: "fa-debug", value: "fa-debug" },
 							]}
 							onChange={onChangeContent}
 						/>
@@ -86,10 +91,19 @@ export default function Edit({ attributes, setAttributes, className }) {
 							]}
 							onChange={onChangeSize}
 						/>
+
+<SelectControl
+							label="Style"
+							options={[
+								{ label: "Default", value: "" },
+								{ label: "Colab Styled", value: "is-style-icon" },
+							]}
+							onChange={onChangeStyle}
+						/>
 					</PanelBody>
 				</Panel>
 			</InspectorControls>
-			<i className={classnames("fal", attributes.icons, attributes.size)}></i>
+			<i className={classnames("fal", attributes.icons, attributes.size, attributes.style)}></i>
 		</div>
 	);
 }

@@ -5,6 +5,9 @@
  */
 import { __ } from "@wordpress/i18n";
 
+import classnames from "classnames";
+
+
 /**
  * React hook that is used to mark the block wrapper element.
  * It provides all the necessary props like the class name.
@@ -24,9 +27,11 @@ import { useBlockProps } from "@wordpress/block-editor";
  */
 export default function save({ attributes }) {
 	return (
+		<div {...useBlockProps.save()}
+		>
 		<i
-			{...useBlockProps.save()}
-			className={classnames("fal", attributes.icons, attributes.size)}
+			className={classnames("fal", attributes.icons, attributes.size, attributes.style)}
 		></i>
+		</div>
 	);
 }

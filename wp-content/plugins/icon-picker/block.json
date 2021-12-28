@@ -8,18 +8,24 @@
 	"icon": "marker",
 	"description": "Presently a pre selected amount of icons to choose from.",
 	"supports": {
-		"html": false
+		"html": false,
+		"align": [ "left", "right", "wide", "full" ]
 	},
 	"attributes": {
 		"icons": {
 			"type": "string",
 			"source": "attribute",
-			"default": "icon_1"
+			"default": "fa-head-side-brain"
 		},
 		"size": {
 			"type": "string",
 			"source": "attribute",
 			"default": "1x"
+		},
+		"style": {
+			"type": "string",
+			"source": "attribute",
+			"default": ""
 		}
 	},
 	"textdomain": "icon-picker",
