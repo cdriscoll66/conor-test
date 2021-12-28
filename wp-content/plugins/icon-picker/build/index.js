@@ -45,7 +45,6 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-
 /**
  * Lets webpack process CSS, SASS or SCSS files referenced in JavaScript files.
  * Those files can contain any CSS code that gets applied to the editor.
@@ -66,9 +65,13 @@ __webpack_require__.r(__webpack_exports__);
 function Edit(_ref) {
   let {
     attributes,
-    setAttributes,
-    className
+    setAttributes
   } = _ref;
+  const {
+    colabStyle,
+    icons,
+    size
+  } = attributes;
 
   const onChangeContent = newContent => {
     setAttributes({
@@ -82,21 +85,28 @@ function Edit(_ref) {
     });
   };
 
-  const onChangeStyle = newContent => {
+  function updateAlignment(nextAlign) {
     setAttributes({
-      style: newContent
+      align: nextAlign
     });
-  }; // let classes = classnames({
-  // 	fal: true,
-  // });
+  }
 
-
-  return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", (0,_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_3__.useBlockProps)(), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_3__.InspectorControls, {
+  const align = attributes.align;
+  const classes = classnames__WEBPACK_IMPORTED_MODULE_2___default()({
+    [`align${align}`]: align
+  });
+  const classStyle = colabStyle ? "is-style-icon" : "";
+  const blockProps = (0,_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_3__.useBlockProps)({
+    className: classes,
+    "data-align": align
+  });
+  return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", blockProps, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_3__.InspectorControls, {
     key: "setting"
   }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_4__.Panel, null, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_4__.PanelBody, {
     title: "Attributes"
   }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_4__.SelectControl, {
     label: "Icon",
+    value: icons,
     options: [{
       label: "fa-head-side-brain",
       value: "fa-head-side-brain"
@@ -115,10 +125,191 @@ function Edit(_ref) {
     }, {
       label: "fa-debug",
       value: "fa-debug"
+    }, {
+      label: "fa-baby",
+      value: "fa-baby"
+    }, {
+      label: "fa-bolt",
+      value: "fa-bolt"
+    }, {
+      label: "fa-briefcase-medical",
+      value: "fa-briefcase-medical"
+    }, {
+      label: "fa-building",
+      value: "fa-building"
+    }, {
+      label: "fa-bullseye-arrow",
+      value: "fa-bullseye-arrow"
+    }, {
+      label: "fa-calculator-alt",
+      value: "fa-calculator-alt"
+    }, {
+      label: "fa-certificate",
+      value: "fa-certificate"
+    }, {
+      label: "fa-chart-bar",
+      value: "fa-chart-bar"
+    }, {
+      label: "fa-chess",
+      value: "fa-chess"
+    }, {
+      label: "fa-chevron-down",
+      value: "fa-chevron-down"
+    }, {
+      label: "fa-chevron-left",
+      value: "fa-chevron-left"
+    }, {
+      label: "fa-chevron-right",
+      value: "fa-chevron-right"
+    }, {
+      label: "fa-chevron-up",
+      value: "fa-chevron-up"
+    }, {
+      label: "fa-clock",
+      value: "fa-clock"
+    }, {
+      label: "fa-code-branch",
+      value: "fa-code-branch"
+    }, {
+      label: "fa-code-merge",
+      value: "fa-code-merge"
+    }, {
+      label: "fa-database",
+      value: "fa-database"
+    }, {
+      label: "fa-do-not-enter",
+      value: "fa-do-not-enter"
+    }, {
+      label: "fa-draw-circle",
+      value: "fa-draw-circle"
+    }, {
+      label: "fa-file-alt",
+      value: "fa-file-alt"
+    }, {
+      label: "fa-file-certificate",
+      value: "fa-file-certificate"
+    }, {
+      label: "fa-flux-capacitor",
+      value: "fa-flux-capacitor"
+    }, {
+      label: "fa-gamepad",
+      value: "fa-gamepad"
+    }, {
+      label: "fa-globe",
+      value: "fa-globe"
+    }, {
+      label: "fa-graduation-cap",
+      value: "fa-graduation-cap"
+    }, {
+      label: "fa-hands-helping",
+      value: "fa-hands-helping"
+    }, {
+      label: "fa-handshake",
+      value: "fa-handshake"
+    }, {
+      label: "fa-heartbeat",
+      value: "fa-heartbeat"
+    }, {
+      label: "fa-island-tropical",
+      value: "fa-island-tropical"
+    }, {
+      label: "fa-lightbulb-on",
+      value: "fa-lightbulb-on"
+    }, {
+      label: "fa-lock-alt",
+      value: "fa-lock-alt"
+    }, {
+      label: "fa-long-arrow-down",
+      value: "fa-long-arrow-down"
+    }, {
+      label: "fa-long-arrow-left",
+      value: "fa-long-arrow-left"
+    }, {
+      label: "fa-long-arrow-right",
+      value: "fa-long-arrow-right"
+    }, {
+      label: "fa-long-arrow-up",
+      value: "fa-long-arrow-up"
+    }, {
+      label: "fa-map-marked-alt",
+      value: "fa-map-marked-alt"
+    }, {
+      label: "fa-microphone-alt",
+      value: "fa-microphone-alt"
+    }, {
+      label: "fa-phone",
+      value: "fa-phone"
+    }, {
+      label: "fa-phone-alt",
+      value: "fa-phone-alt"
+    }, {
+      label: "fa-piggy-bank",
+      value: "fa-piggy-bank"
+    }, {
+      label: "fa-portal-enter",
+      value: "fa-portal-enter"
+    }, {
+      label: "fa-project-diagram",
+      value: "fa-project-diagram"
+    }, {
+      label: "fa-search",
+      value: "fa-search"
+    }, {
+      label: "fa-shapes",
+      value: "fa-shapes"
+    }, {
+      label: "fa-tasks",
+      value: "fa-tasks"
+    }, {
+      label: "fa-tasks-alt",
+      value: "fa-tasks-alt"
+    }, {
+      label: "fa-text-size",
+      value: "fa-text-size"
+    }, {
+      label: "fa-thumbs-down",
+      value: "fa-thumbs-down"
+    }, {
+      label: "fa-thumbs-up",
+      value: "fa-thumbs-up"
+    }, {
+      label: "fa-tools",
+      value: "fa-tools"
+    }, {
+      label: "fa-tooth",
+      value: "fa-tooth"
+    }, {
+      label: "fa-user",
+      value: "fa-user"
+    }, {
+      label: "fa-user-astronaut",
+      value: "fa-user-astronaut"
+    }, {
+      label: "fa-user-chart",
+      value: "fa-user-chart"
+    }, {
+      label: "fa-user-crown",
+      value: "fa-user-crown"
+    }, {
+      label: "fa-user-friends",
+      value: "fa-user-friends"
+    }, {
+      label: "fa-users",
+      value: "fa-users"
+    }, {
+      label: "fa-watch-fitness",
+      value: "fa-watch-fitness"
+    }, {
+      label: "fa-watchman-monitoring",
+      value: "fa-watchman-monitoring"
+    }, {
+      label: "fa-wrench",
+      value: "fa-wrench"
     }],
     onChange: onChangeContent
   }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_4__.SelectControl, {
     label: "Size",
+    value: size,
     options: [{
       label: "1x",
       value: "fa-1x"
@@ -160,18 +351,19 @@ function Edit(_ref) {
       value: "fa-10x"
     }],
     onChange: onChangeSize
-  }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_4__.SelectControl, {
-    label: "Style",
-    options: [{
-      label: "Default",
-      value: ""
-    }, {
-      label: "Colab Styled",
-      value: "is-style-icon"
-    }],
-    onChange: onChangeStyle
-  })))), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("i", {
-    className: classnames__WEBPACK_IMPORTED_MODULE_2___default()("fal", attributes.icons, attributes.size, attributes.style)
+  }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_4__.ToggleControl, {
+    label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)("COLAB Style"),
+    onChange: () => setAttributes({
+      colabStyle: !colabStyle
+    }),
+    checked: colabStyle
+  })))), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_3__.BlockControls, {
+    group: "block"
+  }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_3__.BlockAlignmentControl, {
+    value: attributes.align,
+    onChange: updateAlignment
+  })), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("i", {
+    className: classnames__WEBPACK_IMPORTED_MODULE_2___default()("fal", attributes.icons, attributes.size, classStyle)
   }));
 }
 
@@ -281,8 +473,24 @@ function save(_ref) {
   let {
     attributes
   } = _ref;
-  return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", _wordpress_block_editor__WEBPACK_IMPORTED_MODULE_3__.useBlockProps.save(), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("i", {
-    className: classnames__WEBPACK_IMPORTED_MODULE_2___default()("fal", attributes.icons, attributes.size, attributes.style)
+  const classStyle = attributes.colabStyle ? "is-style-icon" : "";
+  const align = attributes.align;
+  const classes = classnames__WEBPACK_IMPORTED_MODULE_2___default()({
+    [`align${align}`]: align
+  });
+
+  if ('left' === align || 'right' === align || 'center' === align) {
+    return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", _wordpress_block_editor__WEBPACK_IMPORTED_MODULE_3__.useBlockProps.save(), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+      className: classes
+    }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("i", {
+      className: classnames__WEBPACK_IMPORTED_MODULE_2___default()("fal", attributes.icons, attributes.size, classStyle)
+    })));
+  }
+
+  return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", _wordpress_block_editor__WEBPACK_IMPORTED_MODULE_3__.useBlockProps.save({
+    className: classes
+  }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("i", {
+    className: classnames__WEBPACK_IMPORTED_MODULE_2___default()("fal", attributes.icons, attributes.size, classStyle)
   }));
 }
 

@@ -8,24 +8,22 @@
 	"icon": "marker",
 	"description": "Presently a pre selected amount of icons to choose from.",
 	"supports": {
-		"html": false,
-		"align": [ "left", "right", "wide", "full" ]
+		"html": false
 	},
 	"attributes": {
 		"icons": {
 			"type": "string",
-			"source": "attribute",
 			"default": "fa-head-side-brain"
 		},
 		"size": {
 			"type": "string",
-			"source": "attribute",
 			"default": "1x"
 		},
-		"style": {
-			"type": "string",
-			"source": "attribute",
-			"default": ""
+		"align": {
+			"type": "string"
+		},
+		"colabStyle": {
+			"type": "boolean"
 		}
 	},
 	"textdomain": "icon-picker",

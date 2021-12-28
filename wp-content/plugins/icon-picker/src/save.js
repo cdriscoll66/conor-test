@@ -7,7 +7,6 @@ import { __ } from "@wordpress/i18n";
 
 import classnames from "classnames";
 
-
 /**
  * React hook that is used to mark the block wrapper element.
  * It provides all the necessary props like the class name.
@@ -26,12 +25,42 @@ import { useBlockProps } from "@wordpress/block-editor";
  * @return {WPElement} Element to render.
  */
 export default function save({ attributes }) {
+
+	const classStyle = (attributes.colabStyle ? "is-style-icon" : "");
+
+
+	const align = attributes.align;
+	const classes = classnames( {
+		[ `align${ align }` ]: align
+	});
+
+	if ( 'left' === align || 'right' === align || 'center' === align ) {
 	return (
-		<div {...useBlockProps.save()}
-		>
-		<i
-			className={classnames("fal", attributes.icons, attributes.size, attributes.style)}
-		></i>
+		<div {...useBlockProps.save()}>
+			<div className={ classes }>
+				<i
+					className={classnames(
+						"fal",
+						attributes.icons,
+						attributes.size,
+						classStyle
+					)}
+				></i>
+			</div>
 		</div>
 	);
+					}
+	return (
+	<div {...useBlockProps.save( { className: classes } )}>
+		<i
+			className={classnames(
+				"fal",
+				attributes.icons,
+				attributes.size,
+				classStyle
+							)}
+		></i>
+	</div>
+	);
+
 }
